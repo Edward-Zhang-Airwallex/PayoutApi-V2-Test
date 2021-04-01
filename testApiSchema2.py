@@ -4,7 +4,7 @@ import json
 import pytest
 from readData import basic_tool
 
-all_data = readData.read('/Users/edward.zhang/Desktop/all_combination2.csv')
+all_data = readData.read('/Users/edward.zhang/Desktop/some.csv')
 TEST_CASES = ['iban', 'swift_code', 'account_name', 'account_number', 'account_routing_type1', 'account_routing_type2',
               'account_routing_value1', 'account_routing_value2', 'state', 'postcode']
 
@@ -52,7 +52,7 @@ class Test_apiSchemaTest2():
         patterns = [self.findPattern(json_r['fields'], case) for case in TEST_CASES]
         return expect, patterns
 
-    @pytest.mark.parametrize('data', readData.read("/Users/edward.zhang/Desktop/all_combination2.csv"),
+    @pytest.mark.parametrize('data', readData.read("/Users/edward.zhang/Desktop/some.csv"),
                              ids=readData.str_data(all_data))
     def test_all(self, data):
         country_code = data[3]
@@ -70,12 +70,14 @@ class Test_apiSchemaTest2():
             else:
                 if 'country' in expect:
                     expect = expect.replace('country', country_code)
-                pytest.assume(expect == patterns[index], '--------Testing {} --------'.format(TEST_CASES[index]))
+                x= patterns[index]
+                pytest.assume(expect == x, '--------Testing {} --------'.format(TEST_CASES[index]))
 
     def show_cases(self, cases):
+        show_cases = []
         for index, case in enumerate(cases):
-            cases[index] = TEST_CASES[index] + " : " + case
-        print(cases)
+            show_cases.append(TEST_CASES[index] + " : " + case)
+        print(show_cases)
 
 if __name__ == "__main__":
     pytest.main(

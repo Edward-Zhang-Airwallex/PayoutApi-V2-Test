@@ -8,11 +8,11 @@ VALIDATION_SCHEMA = {
             'required':'true',
         }},
         {'GG,JE,IM/SWIFT/*/GBP/*': {
-            'pattern': '^(GB|country)[0-9]{2}[A-Z0-9]{9,30}([A-Z0-9]{3,5}){2,7}([A-Z0-9]{1,3})?$',
+            'pattern': '^(country|GB)[0-9]{2}[A-Z0-9]{9,30}([A-Z0-9]{3,5}){2,7}([A-Z0-9]{1,3})?$',
             'required': 'true',
         }},
         {'GG,JE,IM/*/*/*/*': {
-            'pattern': '^(GB|country)[0-9]{2}[A-Z0-9]{9,30}([A-Z0-9]{3,5}){2,7}([A-Z0-9]{1,3})?$',
+            'pattern': '^(country|GB)[0-9]{2}[A-Z0-9]{9,30}([A-Z0-9]{3,5}){2,7}([A-Z0-9]{1,3})?$',
             'required': 'true',
         }},
         {'GB/SWIFT/*/GBP/*': {
@@ -24,7 +24,7 @@ VALIDATION_SCHEMA = {
             'required': 'true',
         }},
         {'TR/*/*/*/*': {
-            'pattern': '^T(R|K)[0-9]{2}[A-Z0-9]{9,30}([A-Z0-9]{3,5}){2,7}([A-Z0-9]{1,3})?$',
+            'pattern': '^(TR|TK)[0-9]{2}[A-Z0-9]{9,30}([A-Z0-9]{3,5}){2,7}([A-Z0-9]{1,3})?$',
             'required': 'true',
         }},
         {'MQ, PM, TF, YT/*/*/*/*': {
@@ -61,8 +61,12 @@ VALIDATION_SCHEMA = {
             'pattern': '^[A-Z]{4}country[A-Z0-9]{2}([A-Z0-9]{3})?$',
             'required': 'true',
         }},
-        {'SG/LOCAL/SGD/*/*': {
+        {'SG/LOCAL/*/SGD/*': {
             'pattern': '^[A-Z]{4}SG[A-Z0-9]{2}([A-Z0-9]{3})?$',
+            'required': 'true',
+        }},
+        {'CN/LOCAL/*/CNY/*': {
+            'pattern': '',
             'required': 'true',
         }},
         {'*/LOCAL/*/*/*': {
@@ -76,14 +80,13 @@ VALIDATION_SCHEMA = {
 
     ],
     'account_number':[
-        {'AM, AW, AG, AI, AN, AO, AR, BO, BR, CL, CO, CR, CW, DM, DZ, EC, EG, '
-         'FJ, GD, GQ, GY, HN, JM, KE, KG, KH, MA, MO, MV, NI, NP, OM, PA, PE, '
-         'PF, PR, PY, SV, TJ, UG, UY, UZ, VE, VU, ZA, ZM/*/*/*/*': {
+        {'AM, AW, AG, AI, AN, AO, AR, BO, BR, CL, CO, CR, CW, DM, DZ, EC, EG, FJ, GD, GQ, GY, HN, JM, KE, KG, KH, MA, '
+         'MO, MV, NI, NP, OM, PA, PE, PF, PR, PY, SV, TJ, UG, UY, UZ, VE, VU, ZA, ZM/*/*/*/*': {
             'pattern': '^[0-9A-Za-z]{1,50}$',
             'required': 'true',
         }},
         {'AU/LOCAL/BPAY/*/*': {
-            'pattern': '^[0-9A-Za-z]{6,20}$',
+            'pattern': '',
             'required': 'true',
         }},
         {'AU/LOCAL/BANK_TRANSFER/*/*': {
@@ -92,6 +95,14 @@ VALIDATION_SCHEMA = {
         }},
         {'AU/SWIFT/*/*/*': {
             'pattern': '^[0-9A-Za-z]{6,20}$',
+            'required': 'true',
+        }},
+        {'NZ/*/*/NZD/*': {
+            'pattern': '^[0-9]{15,16}$',
+            'required': 'true',
+        }},
+        {'NZ/*/*/*/*': {
+            'pattern': '^[0-9A-Za-z]{1,50}$',
             'required': 'true',
         }},
         {'CA/LOCAL/*/*/*': {
@@ -342,7 +353,7 @@ VALIDATION_SCHEMA = {
             'required': 'true',
         }},
         {'JP/LOCAL/*/*/*': {
-            'pattern': '^[0-9]{11}$',
+            'pattern': '^[0-9]{7}$',
             'required': 'true',
         }},
         {'KR/LOCAL/*/*/*': {
@@ -355,6 +366,10 @@ VALIDATION_SCHEMA = {
         }},
         {'BD/LOCAL/*/*/*': {
             'pattern': '^[0-9]{9}$',
+            'required': 'true',
+        }},
+        {'CN/LOCAL/*/CNY/*': {
+            'pattern': '^[0-9]{12}$',
             'required': 'true',
         }},
 
